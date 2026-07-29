@@ -1,0 +1,23 @@
+{
+  "expo": {
+    "name": "Randolph Weather Guardian",
+    "slug": "randolph-weather-guardian",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "backgroundColor": "#FFFFFF"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.randolph.weatherguardian"
+    },
+    "android": {
+      "package": "com.randolph.weatherguardian"
+    },
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}

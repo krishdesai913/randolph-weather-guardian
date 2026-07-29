@@ -1,0 +1,63 @@
+[
+  {
+    "id": "sussex-tpke-rt10",
+    "name": "Sussex Turnpike under Route 10",
+    "type": "flood",
+    "coordinates": { "lat": 40.8531, "lng": -74.5623 },
+    "trigger": {
+      "kind": "rainfall_rate",
+      "operator": "gte",
+      "value": 1.0,
+      "unit": "in/hr"
+    },
+    "winterTrigger": {
+      "kind": "temperature_and_precip",
+      "maxTempF": 32,
+      "requiresPrecip": true
+    },
+    "alertText": "Not safe to drive under Sussex Turnpike right now. Heavy rain has flooded this spot before.",
+    "suggestedAlternate": "Center Grove Road",
+    "source": "Randolph Township Engineer / OEM Director, confirmed via email",
+    "note": "About once a year a car is totaled after attempting to cross the high water here."
+  },
+  {
+    "id": "rt10-westbound-cgr-ja",
+    "name": "Route 10 westbound, Center Grove Rd to Jennifer Ave",
+    "type": "flood",
+    "coordinates": { "lat": 40.8558, "lng": -74.5701 },
+    "trigger": {
+      "kind": "rainfall_rate",
+      "operator": "gte",
+      "value": 1.0,
+      "unit": "in/hr"
+    },
+    "winterTrigger": {
+      "kind": "temperature_and_precip",
+      "maxTempF": 32,
+      "requiresPrecip": true
+    },
+    "alertText": "Route 10 westbound near Center Grove Road may be flooded. Consider an alternate route.",
+    "suggestedAlternate": "Millbrook Ave",
+    "source": "Randolph Township Engineer / OEM Director, confirmed via email",
+    "note": null
+  },
+  {
+    "id": "franklin-rd-denville-border",
+    "name": "Franklin Road, east of Rockaway Rd to Denville border",
+    "type": "flood",
+    "coordinates": { "lat": 40.8666, "lng": -74.4990 },
+    "trigger": {
+      "kind": "nws_flood_alert",
+      "zone": "NJZ014"
+    },
+    "winterTrigger": {
+      "kind": "temperature_and_precip",
+      "maxTempF": 32,
+      "requiresPrecip": true
+    },
+    "alertText": "Franklin Road near the Denville border may be flooded due to sustained rain and upstream dam releases.",
+    "suggestedAlternate": "Route 10 to Diamond Spring Rd",
+    "source": "Randolph Township Engineer / OEM Director, confirmed via email",
+    "note": "Flooding here is tied to prolonged rain events and upstream dam releases in the Rockaway River basin, not a simple rainfall-rate threshold."
+  }
+]
