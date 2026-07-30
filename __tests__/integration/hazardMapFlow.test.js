@@ -4,7 +4,7 @@
  * full pipeline (data -> logic -> UI), not just one function in isolation.
  */
 import React from "react";
-import { render, screen } from "@testing-library/react-native";
+import { render, screen, within } from "@testing-library/react-native";
 
 import hazards from "../../src/data/hazards.json";
 import { evaluateAllHazards } from "../../src/lib/hazardEngine";
@@ -21,7 +21,10 @@ describe("Hazard data -> engine -> HazardMapScreen integration", () => {
 
     const sussexCard = screen.getByTestId("hazard-card-sussex-tpke-rt10");
     expect(sussexCard).toBeTruthy();
-    expect(screen.getByText("Flooded now \u2014 avoid")).toBeTruthy();
+    // Both Rt 10 spots share the 1 in/hr threshold, so "Flooded now" can
+    // appear more than once - check the danger status within this specific
+    // card rather than a page-wide text match.
+    expect(within(sussexCard).getByText("Flooded now \u2014 avoid")).toBeTruthy();
   });
 
   test("shows all spots as clear when there is no rain and no active NWS flood alerts", () => {

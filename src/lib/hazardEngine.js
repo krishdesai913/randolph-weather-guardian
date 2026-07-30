@@ -66,12 +66,18 @@ function evaluateWinterTrigger(trigger, conditions) {
   const precipitating = !!conditions.isPrecipitating;
   if (typeof tempF !== "number") return RISK.CLEAR;
 
-  if (tempF <= trigger.maxTempF && (trigger.requiresPrecip ? precipitating : true)) {
+  const meetsPrecipRequirement = trigger.requiresPrecip ? precipitating : true;
+
+  // Cold enough AND (if required) actually precipitating - ice risk is real now.
+  if (tempF <= trigger.maxTempF && meetsPrecipRequirement) {
     return RISK.DANGER;
   }
-  if (tempF <= trigger.maxTempF + 4) {
+  // Not cold enough for danger yet, but close - worth a heads-up.
+  if (tempF > trigger.maxTempF && tempF <= trigger.maxTempF + 4) {
     return RISK.WATCH;
   }
+  // Either well above the danger range, or cold-but-dry with no precip
+  // required to trigger a watch.
   return RISK.CLEAR;
 }
 
